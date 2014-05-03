@@ -64,7 +64,7 @@
 
 #ifdef TARGET_OSX
 
--(void)mouseDown:(NSEvent *)theEvent {
+-(void)mouseDown:(UIEvent *)theEvent {
 	/* Called when a mouse click occurs */
     
 	[self swapToNextMap];
@@ -106,7 +106,7 @@
 		// test spade for zOrdering.  Some test maps will make this more useful (as a test) than others.
 		SKSpriteNode* spade = [SKSpriteNode spriteNodeWithImageNamed:@"black-spade-md.png"];
 		spade.position = CGPointMake(spade.frame.size.width/2.5, spade.frame.size.height/2.5);
-		spade.zPosition = self.tiledMap.minZPositioning / 2.0;
+		spade.zPosition = self.tiledMap.tmxMap.minZPositioning / 2.0;
 #ifdef DEBUG
 		NSLog(@"SPADE has zPosition %f", spade.zPosition);
 #endif
