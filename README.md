@@ -1,10 +1,15 @@
-JSTileMap is a TMX Map viewer for SpriteKit
+TMXTileMap (JSTileMap) is a TMX Map Model extractor written in Objective-C
 =========
+If you are looking for TMX (Tiled Map Editor http://www.mapeditor.org/) model parser, you are on a good place. Objective-C TMX parsers that I found were already bound with some rendering engine (SpriteKit, Cocos2d, etc). If you are using another rendering engine or you already have one in SpriteKit, but you would not like to add any engine-related code to your project, TMXTileMap can be a right solution for you.
+
+TMXTileMap was created by forking existing project JSTileMap (https://github.com/slycrel/JSTileMap, big thanks to authors) and refactoring the code. The original project includes SpriteKit logic and TMX Parsing in one class. My contribution simply consisted of refactoring the code and extracting the TMX parsing/model creation part of code to seperate classes (check TMXTileMap.h/.m).
+
+However, you can still use JSTileMap.h./.m in you project, but these classes will only consist of code related to SpriteKit.
 
 Include
 
-	JSTileMap.m
-	JSTileMap.h
+	TMXTileMap.m
+	TMXTileMap.h
 	LFCGzipUtility.h
 	LFCGzipUtility.m
 
@@ -15,14 +20,13 @@ Loading a map
 =========
 
 	...
-	
-	JSTileMap* tiledMap = [JSTileMap mapNamed:@"mapFileName.tmx"];
-	if (tiledMap)
-		[mySKNode addChild:tiledMap];
-		
+	TMXTileMap* tiledMap = [TMXTileMap mapNamed:@"mapFileName.tmx"];
 	...
 
-Browse the properties in JSTileMap and TMXLayer for most of what you'll use 
+Description of JSTileMap
+=========
+
+Browse the properties in TMXTileMap and TMXTileLayer for most of what you'll use 
 frequently.  Limited accessor methods are included for convenience.
 
 Tile atlases are expected to be in the same directory as the TMX file when loaded.  
