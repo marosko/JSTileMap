@@ -50,6 +50,8 @@ typedef enum
 
 @interface TMXTilesetInfo : NSObject <NSCoding>
 
+// gid is a unique ID given to each tile of each tileset within a TMX file,
+
 @property (readonly, nonatomic) NSString* name;
 @property (readonly, nonatomic) unsigned int firstGid;
 @property (readonly, nonatomic) CGSize tileSize;
@@ -146,6 +148,7 @@ typedef enum
 
 @interface TMXTileMap : NSObject <NSXMLParserDelegate>
 
+// map size - number of tiles per row and column
 @property (assign, nonatomic) CGSize mapSize;
 @property (assign, nonatomic) CGSize tileSize;
 @property (assign, nonatomic) PropertyType parentElement;
